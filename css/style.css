@@ -797,7 +797,7 @@ a.links-info__link:hover {
 .navbar__search {
   display: block;
   position: relative;
-  z-index: 100;
+  z-index: 200;
   width: 100%;
   padding-bottom: 100%;
   background-color: #5DA130;
@@ -819,13 +819,13 @@ a.links-info__link:hover {
 
 @media (max-width: 767px) {
   .navbar__top._active > .navbar__search {
-    right: calc((100vw / 2) - 150px);
+    right: calc((100vw / 2) - 147px);
   }
 }
 
 @media (max-width: 370px) {
   .navbar__top._active > .navbar__search {
-    right: calc((100vw / 2) - 110px);
+    right: calc((100vw / 2) - 108px);
   }
 }
 

@@ -1,0 +1,201 @@
+.map {
+	position: relative;
+	&__form {
+		position: absolute;
+		z-index: 10;
+		top: 0;
+		right: -300px;
+		height: 100%;
+		width: 300px;
+		background-color: $dark;
+		transition: right 0.5s ease;
+	}
+	&__form._active {
+		right: 59px;
+	}
+
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	&__item {
+		position: relative;
+		z-index: 9;
+		width: calc(100% - 60px);
+		height: 100%;
+		overflow: hidden;
+	}
+	&__navbar {
+		width: 60px;
+		background-color: $dark;
+	}
+	
+}
+
+.form {
+	padding-top: 150px;
+
+	&__content {
+		position: relative;
+		height: 100%;
+	}
+	&__end {
+		display: flex;
+		justify-content: space-between;
+		width: 250px;
+		position: absolute;
+		top: 90%;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+	&__name {
+		font-family: 'Overpass';
+		font-style: italic;
+		font-weight: 300;
+		padding-top: 1px;
+		margin-left: 20px;
+		padding-left: 10px;
+		font-size: 20px;
+		width: 90%;
+		height: 40px;
+		border-radius: 8px;
+		margin-bottom: 30px;
+		color: $green;
+		background-color: $superDark;
+		box-sizing: border-box;
+		border: $green 2px solid;
+		&:focus {
+			padding-left: 9px;
+			border: $green 3px solid;
+		}
+		&::placeholder{
+			color: $green;
+			opacity: 0.7;
+		}
+	}
+
+	&__about {
+		font-family: 'Overpass';
+		font-style: italic;
+		font-weight: 300;
+		margin-left: 20px;
+		padding: 10px;
+		font-size: 20px;
+		color: $green;
+		width: 90%;
+		height: 120px;
+		border-radius: 8px;
+		margin-bottom: 30px;
+		background-color: $superDark;
+		box-sizing: border-box;
+		border: $green 2px solid;
+		resize: none;
+		&:focus {
+			padding: 9px;
+			border: $green 3px solid;
+		}
+		&::placeholder{
+			color: $green;
+			opacity: 0.7;
+		}
+	}
+
+	&__image {
+		height: 130px;
+		width: 130px;
+		margin-left: 20px;
+		border-radius: 8px;
+		background-color: $superDark;
+		margin-bottom: 10px;
+		background-size: contain;
+
+	}
+
+	&__file{
+		position: relative;
+		width: 130px;
+		height: 25px;
+		margin-left: 20px;
+		border-radius: 8px;
+		cursor: pointer;
+		& > input {
+			z-index: 15;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			font-size: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 8px;
+			cursor: pointer;
+		}
+		& > button {
+			font-family:  'Overpass';
+			color: $dark;
+			font-size: 15px;
+			width: 100%;
+			height: 100%;
+			padding-top: 1px;
+			background-color: $green;
+			border-radius: 8px;
+			transition: all 0.5s ease;
+		}
+		&:hover > button{
+			color: $white;
+		}
+		
+	}
+	&__button {
+		padding-top: 1px;
+		color: $dark;
+		font-size: 20px;
+		font-family: 'Overpass';
+		border-radius: 22px;
+		width: 120px;
+		height: 45px;
+		transition: color 0.5s ease;
+		&:hover {
+			color: $white;
+		}
+		&_submit {
+			background-color: $green;
+		}
+
+		&_cancel {
+			background-color: $red;
+		}
+	}
+}
+
+
+
+.delete {
+	display: none;
+	margin-bottom: 50px;
+	margin-right: 25px;
+	width: 100px;
+	height: 25px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: red;
+	color: white;
+	position: absolute;
+	z-index: 100;
+	align-self: flex-end;
+}
+
+.delete.shown{
+	display: none;
+	margin-bottom: 50px;
+	margin-right: 25px;
+	width: 100px;
+	height: 25px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: red;
+	color: white;
+	position: absolute;
+	z-index: 100;
+	align-self: flex-end;
+}

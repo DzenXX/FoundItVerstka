@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=Oswald&family=Overpass:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=PT+Serif:ital@1&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Zen+Kurenaido&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=182c260b-496a-4f57-ad3d-f93470a388a0&lang=ru_RU"
+		type="text/javascript"></script>
+	<title>Found It</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<main class="content">
+			<section class="fullscreen">
+				<div class="fullscreen__logo">Found <span class="green-text">It<span></div>
+				<div class="fullscreen__image image-fullscreen">
+					<div class="fullscreen__slogan">Вы потеряли —<br> Другие помогут</div>
+				</div>
+				<div class="fullscreen__info info">
+					<div class="info__links links-info">
+						<a href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vladimir_Zhirinovsky_portrait.png/274px-Vladimir_Zhirinovsky_portrait.png"
+							class="links-info__link">Поддержка</a>
+						<div href="#" class="links-info__link _default">|</div>
+						<a href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vladimir_Zhirinovsky_portrait.png/274px-Vladimir_Zhirinovsky_portrait.png"
+							class="links-info__link">Медиа</a>
+						<div href="#" class="links-info__link _default">|</div>
+						<a href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Vladimir_Zhirinovsky_portrait.png/274px-Vladimir_Zhirinovsky_portrait.png"
+							class="links-info__link">Создатели</a>
+					</div>
+					<section class="line"></section>
+					<div class="info__about about-info">
+						<div class="about-info__title">Место, где ты найдёшь своё...</div>
+						<div class="about-info__subtitle">Любая потерянная вещь это напасть, <br>
+							но здесь тебе помогут её найти</div>
+					</div>
+					<div class="info__footer footer-info">
+						<div class="info__navigation navigation-info">
+							<div class="navigation-info__title">Список всех недавно найденных вещей</div>
+							<div class="navigation-info__button button-navigation-info">
+								<span>Показать</span>
+								<div class="button-navigation-info__arrow _icon-arrow-down"></div>
+							</div>
+						</div>
+						<div class="info__slider slider-info">
+							<div class="image-slider swiper">
+								<div class="image-slider__wrapper swiper-wrapper">
+									<div class="image-slider__slide swiper-slide">
+										<div class="image-slider__image" style="background-image: url(./img/for-slider.jpg);">
+											<div class="image-slider__green"></div>
+										</div>
+										<div class="image-slider__content content-image-slider">
+											<h1 class="content-image-slider__title"></h1>
+										</div>
+									</div>
+									<div class="image-slider__slide swiper-slide">
+										<div class="image-slider__image" style="background-image: url(img/for-slider.jpg);">
+											<div class="image-slider__green"></div>
+										</div>
+										<div class="image-slider__content content-image-slider">
+											<h1 class="content-image-slider__title"></h1>
+										</div>
+									</div>
+									<div class="image-slider__slide swiper-slide">
+										<div class="image-slider__image" style="background-image: url(img/for-slider.jpg);">
+											<div class="image-slider__green"></div>
+										</div>
+										<div class="image-slider__content content-image-slider">
+											<h1 class="content-image-slider__title"></h1>
+										</div>
+									</div>
+								</div>
+								<div class="image-slider__container _container"></div>
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<nav class="fullscreen__navbar navbar">
+					<div class="navbar__top">
+						<a href="#" class="navbar__search">
+							<span class="_icon-search1"></span>
+						</a>
+						<form class="navbar__form" action="#" method="post" enctype="multipart/form-data">
+							<input placeholder="Название предмета..." type="text" name="name" class="navbar__input"></input>
+						</form>
+						<div class="menu__icon">
+							<span></span>
+						</div>
+						<div class="menu__body">
+							<ul class="menu__list navbar__links links-navbar">
+								<li class="menu__item links-navbar__link">
+									<a href="#" class="menu__link links-navbar__link">
+										<span class="_icon-user-o"><span class="menu-link__text">Профиль</span></span>
+									</a>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<span class="links-navbar__space_pc">—</span>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<span class="links-navbar__space_forPhone">—————</span>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<a href="#" class="menu__link links-navbar__link">
+										<span class="_icon-comment-o"><span class="menu-link__text">Сообщения</span></span>
+									</a>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<span class="links-navbar__space_pc">—</span>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<span class="links-navbar__space_forPhone">—————</span>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<a href="#" class="menu__link links-navbar__link">
+										<span class="_icon-gps_fixed"><span class="menu-link__text">Мои метки</span></span>
+									</a>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<span class="links-navbar__space_pc">—</span>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<span class="links-navbar__space_forPhone">—————</span>
+								</li>
+								<li class="menu__item links-navbar__link">
+									<a href="#" class="menu__link links-navbar__link">
+										<span class="_icon-share-2"><span class="menu-link__text">Поделиться</span></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="navbar__scroll _icon-arrow-down"></div>
+				</nav>
+				<div class="navbar__scroll navbar__scroll_second _icon-arrow-down"></div>
+			</section>
+			<section class="line"></section>
+			<section class="map">
+				<div class="map__form form">
+					<form action="" method="post" class="form__content">
+						<input placeholder="Название предмета..." type="text" name="name" class="form__name"></input>
+						<textarea placeholder="Описание предмета..." name="description" class="form__about"></textarea>
+						<div class="form__image"></div>
+						<div class="form__file">
+							<input type="file" id="formImage" name="image" accept=".jpg, .png, .psd, .jfif" onChange="selectImage(this)">
+							<button>Выбрать файл</button>
+						</div>
+						<div class="form__end">
+							<button type="submit" class="form__button form__button_submit">Отправить</button>
+							<button class="form__button form__button_cancel">Отменить</button>
+						</div>
+					</form>
+				</div>
+				<div class="delete">Отменить</div>
+				<div id="map" class="map__item"></div>
+				<div class="map__navbar"></div>
+			</section>
+		</main>
+	</div>
+	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/map-script.js" type="module"></script>
+   <script src="js/placemark-info.js" type="module"></script>
+</body>
+
+</html>

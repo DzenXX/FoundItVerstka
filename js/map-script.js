@@ -58,7 +58,6 @@ function init() {
     function dbPlacemarks() {
 
         for (let i = 0; i < (arrayPlacemarkTest.length); i++) {
-            console.log(arrayPlacemarkTest[i][1], arrayPlacemarkTest[i][2],arrayPlacemarkTest[i][3],arrayPlacemarkTest[i][4],arrayPlacemarkTest[i][5])
             let lat = arrayPlacemarkTest[i][2];
             let lon = arrayPlacemarkTest[i][3];
 
@@ -125,7 +124,6 @@ let coordsLon;
 function coordsToSend() {
     coordsLat = dynamicCoords[0];
     coordsLon = dynamicCoords[1];
-    console.log(coordsLat, coordsLon);
 }
 
 let imgForm = document.getElementById('formImage');
@@ -147,7 +145,7 @@ let hintHTML;
 let balloonTextHTML;
 
 $(document).ready(function () {
-    $(".form__button form__button_submit").click(
+    $(".form__button_submit").click(
         function () {
             hintHTML = document.querySelector('.form__name').value;
             balloonTextHTML = document.querySelector('.form__about').value;

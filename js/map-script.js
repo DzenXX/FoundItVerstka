@@ -2,17 +2,17 @@ let lmao = 0;
 let arrayPlacemarkTest = [];
 
 function getPlacemarks() {
-    $.ajax({
-        url: "php/dbreceiver.php",
-        type: "POST",
-        data: {"lmao": lmao},
-        success: function (response) {
-            let result = $.parseJSON(response);
-            arrayPlacemarkTest = Object.values(result);
-        },
-        error: function (response) {
-        }
-    });
+	$.ajax({
+		url: "php/dbreceiver.php",
+		type: "POST",
+		data: { "lmao": lmao },
+		success: function (response) {
+			let result = $.parseJSON(response);
+			arrayPlacemarkTest = Object.values(result);
+		},
+		error: function (response) {
+		}
+	});
 }
 
 getPlacemarks();
@@ -26,104 +26,103 @@ let Clusterer;
 
 let dynamicCoords = [];
 let dynamicPlacemark;
-let deleteButton = document.querySelector('.delete');
+let cancelButton = document.querySelector('.form__button_cancel');
 
 function init() {
-    map = new ymaps.Map('map', {
-        center: center,
-        zoom: 12
-    });
+	map = new ymaps.Map('map', {
+		center: center,
+		zoom: 12
+	});
 
-    map.controls.remove('geolocationControl');
-    map.controls.remove('searchControl');
-    map.controls.remove('trafficControl');
-    map.controls.remove('typeSelector');
-    map.controls.remove('fullscreenControl');
-    map.controls.remove('zoomControl');
-    map.controls.remove('rulerControl');
+	map.controls.remove('geolocationControl');
+	map.controls.remove('searchControl');
+	map.controls.remove('trafficControl');
+	map.controls.remove('typeSelector');
+	map.controls.remove('fullscreenControl');
+	map.controls.remove('zoomControl');
+	map.controls.remove('rulerControl');
 
-    function cluster() {
-        GeoObjects = [];
+	function cluster() {
+		GeoObjects = [];
 
-        Clusterer = new ymaps.Clusterer({
-            preset: 'islands#invertedGreenClusterIcons',
-            groupByCoordinates: false,
-            gridSize: 128,
-        });
+		Clusterer = new ymaps.Clusterer({
+			preset: 'islands#invertedGreenClusterIcons',
+			groupByCoordinates: false,
+			gridSize: 128,
+		});
 
-        Clusterer.add(GeoObjects);
-        map.geoObjects.add(Clusterer);
-    };
+		Clusterer.add(GeoObjects);
+		map.geoObjects.add(Clusterer);
+	};
 
-    function dbPlacemarks() {
+	function dbPlacemarks() {
 
-        for (let i = 0; i < (arrayPlacemarkTest.length); i++) {
-            let lat = arrayPlacemarkTest[i][2];
-            let lon = arrayPlacemarkTest[i][3];
+		for (let i = 0; i < (arrayPlacemarkTest.length); i++) {
+			let lat = arrayPlacemarkTest[i][2];
+			let lon = arrayPlacemarkTest[i][3];
 
-            arrayPlacemarkTest[i][1] = new ymaps.Placemark([lat, lon], {
-                balloonContentHeader: arrayPlacemarkTest[i][4],
-                balloonContentBody: `${arrayPlacemarkTest[i][5]}\n
+			arrayPlacemarkTest[i][1] = new ymaps.Placemark([lat, lon], {
+				balloonContentHeader: arrayPlacemarkTest[i][4],
+				balloonContentBody: `${arrayPlacemarkTest[i][5]}\n
                 <img src=\"${arrayPlacemarkTest[i][6]}\" height=\"150\" width=\"200\"> <br/>`,
-                hintContent: arrayPlacemarkTest[i][4]
-            }, {
-                preset: 'islands#greenDotIconWithCaption',
-                balloonMaxWidth: 200,
-                openHintOnHover: true
-            });
+				hintContent: arrayPlacemarkTest[i][4]
+			}, {
+				preset: 'islands#greenDotIconWithCaption',
+				balloonMaxWidth: 200,
+				openHintOnHover: true
+			});
 
-            GeoObjects.push(arrayPlacemarkTest[i][1]);
-            Clusterer.add(GeoObjects);
-            map.geoObjects.add(Clusterer);
-        }
+			GeoObjects.push(arrayPlacemarkTest[i][1]);
+			Clusterer.add(GeoObjects);
+			map.geoObjects.add(Clusterer);
+		}
 
 
-    };
+	};
 
-    function getCoords() {
+	function getCoords() {
 
-        let oneCall = 1;
+		let oneCall = 1;
 
-        map.events.add('click', function (item) {
-            dynamicCoords = item.get('coords');
-            coordsToSend();
-            if (oneCall == 1) {
-                dynamicPlacemark = new ymaps.Placemark([dynamicCoords[0], dynamicCoords[1]], {
-                }, {
-                    preset: 'islands#redDotIconWithCaption',
-                    openHintOnHover: false,
-                    openEmptyBalloon: false
-                });
+		map.events.add('click', function (item) {
+			dynamicCoords = item.get('coords');
+			coordsToSend();
+			if (oneCall == 1) {
+				dynamicPlacemark = new ymaps.Placemark([dynamicCoords[0], dynamicCoords[1]], {
+				}, {
+					preset: 'islands#redDotIconWithCaption',
+					openHintOnHover: false,
+					openEmptyBalloon: false
+				});
 
-                deleteButton.classList.add('shown');
+				form.classList.add('_active')
 
-                map.geoObjects.add(dynamicPlacemark);
+				map.geoObjects.add(dynamicPlacemark);
 
-                oneCall++;
-            }
-            else if (oneCall != 1) {
-                alert("No marks for u");
-            }
-        });
+				oneCall++;
+			}
+			else if (oneCall != 1) {
+				alert("No marks for u");
+			}
+		});
 
-        deleteButton.onclick = function () {
-            deleteButton.classList.remove('shown');
-            map.geoObjects.remove(dynamicPlacemark);
-            oneCall--;
-        }
+		cancelButton.onclick = function () {
+			map.geoObjects.remove(dynamicPlacemark);
+			oneCall--;
+		}
 
-    };
+	};
 
-    cluster();
-    dbPlacemarks();
-    getCoords();
+	cluster();
+	dbPlacemarks();
+	getCoords();
 };
 
 let coordsLat;
 let coordsLon;
 function coordsToSend() {
-    coordsLat = dynamicCoords[0];
-    coordsLon = dynamicCoords[1];
+	coordsLat = dynamicCoords[0];
+	coordsLon = dynamicCoords[1];
 }
 
 let imgForm = document.getElementById('formImage');
@@ -132,46 +131,46 @@ let imgUrl;
 
 imgForm.addEventListener('change', imgToUrl);
 function imgToUrl() {
-    reader[0] = new FileReader();
-    reader[0].readAsDataURL(this.files[0]);
-    (() => {
-        reader[0].onload = (e) => {
-            imgUrl = e.target.result;
-        }
-    })()
+	reader[0] = new FileReader();
+	reader[0].readAsDataURL(this.files[0]);
+	(() => {
+		reader[0].onload = (e) => {
+			imgUrl = e.target.result;
+		}
+	})()
 }
 
 let hintHTML;
 let balloonTextHTML;
 
 $(document).ready(function () {
-    $(".form__button_submit").click(
-        function () {
-            hintHTML = document.querySelector('.form__name').value;
-            balloonTextHTML = document.querySelector('.form__about').value;
-            sendAjaxForm('php/dbsender.php');
-            return false;
-        }
-    );
+	$(".form__button_submit").click(
+		function () {
+			hintHTML = document.querySelector('.form__name').value;
+			balloonTextHTML = document.querySelector('.form__about').value;
+			sendAjaxForm('php/dbsender.php');
+			return false;
+		}
+	);
 });
 
 function sendAjaxForm(url) {
-    $.ajax({
-        url: url,
-        type: "POST",
-        dataType: "html",
-        data: {
-            "hintHTML": hintHTML,
-            "balloonTextHTML": balloonTextHTML,
-            "balloonImgHTML": imgUrl,
-            "coordsLat": coordsLat,
-            "coordsLon": coordsLon,
-        },
-        success: function (response) {
-        },
-        error: function (response) {
-        }
-    });
+	$.ajax({
+		url: url,
+		type: "POST",
+		dataType: "html",
+		data: {
+			"hintHTML": hintHTML,
+			"balloonTextHTML": balloonTextHTML,
+			"balloonImgHTML": imgUrl,
+			"coordsLat": coordsLat,
+			"coordsLon": coordsLon,
+		},
+		success: function (response) {
+		},
+		error: function (response) {
+		}
+	});
 }
 
 ymaps.ready(init);

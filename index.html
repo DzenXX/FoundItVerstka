@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=182c260b-496a-4f57-ad3d-f93470a388a0&lang=ru_RU"
 		type="text/javascript"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<title>Found It</title>
 </head>
 
@@ -151,7 +152,8 @@
 						<textarea placeholder="Описание предмета..." name="description" class="form__about"></textarea>
 						<div class="form__image"></div>
 						<div class="form__file">
-							<input type="file" id="formImage" name="image" accept=".jpg, .png, .psd, .jfif" onChange="selectImage(this)">
+							<input type="file" id="formImage" name="image" accept=".jpg, .png, .psd, .jfif"
+								onChange="selectImage(this)">
 							<button>Выбрать файл</button>
 						</div>
 						<div class="form__end">
@@ -169,7 +171,6 @@
 	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/map-script.js" type="module"></script>
-   <script src="js/placemark-info.js" type="module"></script>
 </body>
 
 </html>
